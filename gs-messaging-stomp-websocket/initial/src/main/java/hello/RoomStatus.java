@@ -8,6 +8,7 @@ import java.util.List;
 public class RoomStatus {
     int count;
     List<String> user;
+    List<String> card;
     int cardNum;
 
     public int getCount() {
@@ -20,6 +21,14 @@ public class RoomStatus {
 
     public List<String> getUser() {
         return user;
+    }
+
+    public List<String> getCard() {
+        return card;
+    }
+
+    public void setCard(List<String> card) {
+        this.card = card;
     }
 
     public void setUser(List<String> user) {

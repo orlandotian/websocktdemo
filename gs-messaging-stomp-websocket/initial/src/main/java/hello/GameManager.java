@@ -48,8 +48,55 @@ public class GameManager {
         if(result == null) {
             return "现在需要" + RoomManager.getInstance().getRoom(id).getIndexUser() + "抓牌";
         } else {
-            return username + "抓到" + result;
+            RoomManager.getInstance().getRoom(id).getUser(username).card.add(result);
+            return username + "抓到  " + result + ", " + getRule(result);
         }
+    }
+
+    public static String getRule(String rule) {
+        String result = "";
+        switch (rule) {
+            case "A":
+                result = "代酒牌,颤抖吧!少年!";
+                break;
+            case "2":
+                result = "大喊小姐上班了,别害羞";
+                break;
+            case "3":
+                result = "三园开整";
+                break;
+            case "4":
+                result = "猜拳PK";
+                break;
+            case "5":
+                result = "小心照相机哦";
+                break;
+            case "6":
+                result = "随时摸鼻子,注意我的手";
+                break;
+            case "7":
+                result = "敲7开整,不识数的自己喝吧!";
+                break;
+            case "8":
+                result = "可以去厕所咯";
+                break;
+            case "9":
+                result = "点背,喝吧";
+                break;
+            case "10":
+                result = "别客气,请大喊我是精神病";
+                break;
+            case "J":
+                result = "上家喝一杯";
+                break;
+            case "Q":
+                result = "下家喝一杯";
+                break;
+            case "K":
+                result = "决定命运的时刻";
+                break;
+        }
+        return result;
     }
 
     public static RoomStatus getStatus(int id) {
@@ -57,6 +104,7 @@ public class GameManager {
         roomStatus.setCount(RoomManager.getInstance().getUserCount(id));
         roomStatus.setUser(RoomManager.getInstance().getRoom(id).getUserList());
         roomStatus.setCardNum(RoomManager.getInstance().getRoom(id).getCardNum());
+        roomStatus.setCard(RoomManager.getInstance().getRoom(id).getCardList());
         return roomStatus;
     }
 }

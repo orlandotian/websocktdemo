@@ -100,8 +100,24 @@ public class RoomManager {
             return usernames;
         }
 
+        public List<String> getCardList() {
+            List<String> cards = new ArrayList<>();
+            for(int i = 0; i < users.size(); i++) {
+                StringBuilder sb = new StringBuilder();
+                users.get(i).card.forEach(item->{
+                    sb.append(item);
+                    sb.append(",");
+                });
+                cards.add(sb.toString());
+            }
+            return cards;
+        }
+
         public void fresh() {
             cardManager.fresh();
+            users.forEach(item-> {
+                item.card.clear();
+            });
         }
 
         public String getCard(String name) {
@@ -126,7 +142,7 @@ public class RoomManager {
 
     public class User {
         String name;
-        List<String> card;
+        List<String> card = new ArrayList<>();
 
         User(String name) {
             this.name = name;
