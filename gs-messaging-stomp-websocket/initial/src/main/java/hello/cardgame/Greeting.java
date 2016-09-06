@@ -1,4 +1,4 @@
-package hello;
+package hello.cardgame;
 
 /**
  * Created by tiansai on 16/6/27.

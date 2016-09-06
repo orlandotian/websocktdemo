@@ -1,4 +1,4 @@
-package hello;
+package hello.cardgame;
 
 import java.util.ArrayList;
 import java.util.HashMap;

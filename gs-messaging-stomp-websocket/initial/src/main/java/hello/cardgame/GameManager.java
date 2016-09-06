@@ -1,8 +1,6 @@
-package hello;
+package hello.cardgame;
 
 import org.springframework.util.StringUtils;
-
-import java.util.Random;
 
 /**
  * Created by tiansai on 16/6/28.
